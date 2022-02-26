@@ -3,6 +3,7 @@ package com.nextbasecrm.tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,11 +40,20 @@ public class LogingFuction {
     }
 
 
-
     @Test
-    public void  login_with_valid_credentials_with_login_btn() {
-       //username
+    public void login_with_valid_credentials_with_login_btn() {
+        //username
         WebElement username = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[1]"));
+        username.sendKeys(ConfigurationReader.getProperty("username"));
+        // write password
+        WebElement password = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[2]"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        // click login button
+        WebElement loginButton = driver.findElement(By.xpath("//input[@type = 'submit']"));
+        BrowserUtils.sleepMethod(3);
+        loginButton.click();
+        //loginButton+ Keys.ENTER;
+
 
 
     }
