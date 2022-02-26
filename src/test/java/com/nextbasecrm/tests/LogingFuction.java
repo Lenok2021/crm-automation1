@@ -31,7 +31,7 @@ public class LogingFuction {
         driver.get(ConfigurationReader.getProperty("env"));
 
     }
-    
+
 
 
 
