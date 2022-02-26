@@ -62,5 +62,6 @@ public class LogingFuction {
         Assert.assertEquals(actualTitle,expectedTitle);
 
 
+
     }
 }
