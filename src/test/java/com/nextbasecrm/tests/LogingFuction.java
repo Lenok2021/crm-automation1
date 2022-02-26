@@ -64,4 +64,30 @@ public class LogingFuction {
 
 
     }
+
+    @Test
+    public void login_with_valid_credentials_with_enter_button() {
+        //username
+        WebElement username = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[1]"));
+        username.sendKeys(ConfigurationReader.getProperty("username"));
+        // write password
+        WebElement password = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[2]"));
+        password.sendKeys(ConfigurationReader.getProperty("password")+ Keys.ENTER);
+
+        BrowserUtils.sleepMethod(3);
+
+             //  verify title
+        String expectedTitle = "Portal";
+        String actualTitle = driver.getTitle();
+
+        Assert.assertEquals(actualTitle,expectedTitle);
+
+
+
+    }
+
+
+
+
+
 }
