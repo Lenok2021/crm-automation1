@@ -85,8 +85,28 @@ public class LogingFuction {
 
 
     }
+    // negative scenario
+    // valid userName - invalid password
+    @Test
+    public void login_with_valid_and_invalid_Password() {
+        //username
+        WebElement username = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[1]"));
+        username.sendKeys(ConfigurationReader.getProperty("username"));
+        // write password
+        WebElement password = driver.findElement(By.xpath("(//input[@class = 'login-inp'])[2]"));
+        password.sendKeys(ConfigurationReader.getProperty("password")+ Keys.ENTER);
+
+        BrowserUtils.sleepMethod(3);
+
+        //  verify title
+        String expectedTitle = "Portal";
+        String actualTitle = driver.getTitle();
+
+        Assert.assertEquals(actualTitle,expectedTitle);
 
 
+
+    }
 
 
 
